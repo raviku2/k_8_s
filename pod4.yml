@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flipkart
+  labels:
+    team: ravi
+    department: devops
+spec:
+  containers:
+  - name: signup
+    image: ubuntu
+    command: ["/bin/bash", "-c", "while true; do echo flipkart; sleep 2; done"]
