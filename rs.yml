@@ -1,0 +1,20 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: flipkart
+spec:
+  replicas: 2
+  selector:
+    matchExpressions:
+      - {key: myname, operator: In, values: [signup, login, logout]}
+      - {key: env, operator: NotIn, values: [amazon]}
+  template:
+    metadata:
+      name: ravi
+      labels:
+         myname: signup
+    spec:
+      containers:
+         - name: 02tc
+           image: ubuntu
+           command: ["/bin/bash", "-c", "while true; do echo signup; sleep 2; done"]
