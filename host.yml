@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flipkart
+spec:
+  containers:
+  - name: signup
+    image: centos
+    command: ["/bin/bash", "-c", "sleep 15000"]
+    volumeMounts:
+    - mountPath: /tmp/hostpath
+      name: ravi
+  volumes:
+  - name: ravi
+    hostPath:
+      path: /tmp/data
+
